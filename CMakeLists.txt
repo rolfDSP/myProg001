@@ -11,6 +11,7 @@ add_executable(myProg001
     main.cpp
     TMainWindow/TMainWindow.cpp
     TStatusBar/TStatusBar.cpp
+        PDataItem/PDataItem.cpp
 )
 
 target_include_directories(myProg001 PRIVATE ${GTK3_INCLUDE_DIRS} ${PROJECT_SOURCE_DIR})
