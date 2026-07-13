@@ -18,3 +18,12 @@ void setDispSize(int size)
 The class should have a member variable called m_sName of the type std::string.
 It should have a suitable public set/get function.
 
+New 2026/07/13:
+
+A SVG graphics shall be rendered in the window, centered in x and y direction.
+The size of the SVG picture shall be 90% of the total window size and re-adjusted on resizing.
+The SVG definition in XML format shall be passed as a string with the class function:
+
+setSVG(const std::string def)
+
+It should be possible to change the definition dynamically at runtime and redraw the window.
