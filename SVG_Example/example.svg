@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#87CEEB"/>
+      <stop offset="100%" stop-color="#E0F7FA"/>
+    </linearGradient>
+    <radialGradient id="sunGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#FFF176"/>
+      <stop offset="100%" stop-color="#FFD600"/>
+    </radialGradient>
+    <linearGradient id="hillGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#66BB6A"/>
+      <stop offset="100%" stop-color="#2E7D32"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sky background -->
+  <rect width="400" height="300" fill="url(#skyGrad)"/>
+
+  <!-- Sun -->
+  <circle cx="340" cy="60" r="40" fill="url(#sunGrad)" opacity="0.9"/>
+
+  <!-- Clouds -->
+  <g opacity="0.85">
+    <ellipse cx="100" cy="70" rx="50" ry="22" fill="white"/>
+    <ellipse cx="130" cy="58" rx="35" ry="20" fill="white"/>
+    <ellipse cx="75"  cy="62" rx="30" ry="16" fill="white"/>
+  </g>
+  <g opacity="0.75">
+    <ellipse cx="240" cy="90" rx="40" ry="18" fill="white"/>
+    <ellipse cx="265" cy="80" rx="28" ry="16" fill="white"/>
+  </g>
+
+  <!-- Green hills -->
+  <ellipse cx="0"   cy="280" rx="180" ry="100" fill="url(#hillGrad)"/>
+  <ellipse cx="400" cy="290" rx="200" ry="110" fill="#558B2F"/>
+  <ellipse cx="200" cy="300" rx="230" ry="90"  fill="#43A047"/>
+
+  <!-- Tree trunk -->
+  <rect x="190" y="200" width="20" height="60" fill="#5D4037" rx="4"/>
+  <!-- Tree foliage (three triangles stacked) -->
+  <polygon points="200,100 240,200 160,200" fill="#1B5E20"/>
+  <polygon points="200,125 235,215 165,215" fill="#2E7D32"/>
+  <polygon points="200,150 230,230 170,230" fill="#388E3C"/>
+
+  <!-- House -->
+  <rect x="40" y="200" width="90" height="70" fill="#EF9A9A" rx="3"/>
+  <!-- Roof -->
+  <polygon points="25,205 85,155 145,205" fill="#B71C1C"/>
+  <!-- Door -->
+  <rect x="73" y="235" width="24" height="35" fill="#4E342E" rx="3"/>
+  <circle cx="91" cy="255" r="2.5" fill="#FFD700"/>
+  <!-- Window left -->
+  <rect x="48" y="212" width="22" height="20" fill="#B3E5FC" rx="2" stroke="#90CAF9" stroke-width="1.5"/>
+  <line x1="59" y1="212" x2="59" y2="232" stroke="#90CAF9" stroke-width="1.5"/>
+  <line x1="48" y1="222" x2="70" y2="222" stroke="#90CAF9" stroke-width="1.5"/>
+  <!-- Window right -->
+  <rect x="100" y="212" width="22" height="20" fill="#B3E5FC" rx="2" stroke="#90CAF9" stroke-width="1.5"/>
+  <line x1="111" y1="212" x2="111" y2="232" stroke="#90CAF9" stroke-width="1.5"/>
+  <line x1="100" y1="222" x2="122" y2="222" stroke="#90CAF9" stroke-width="1.5"/>
+
+  <!-- Birds (simple V shapes) -->
+  <path d="M 270 50 Q 278 44 286 50" stroke="#333" stroke-width="2" fill="none"/>
+  <path d="M 290 40 Q 298 34 306 40" stroke="#333" stroke-width="2" fill="none"/>
+  <path d="M 255 65 Q 261 60 267 65" stroke="#333" stroke-width="2" fill="none"/>
+
+  <!-- Title text -->
+  <text x="200" y="295" text-anchor="middle" font-family="sans-serif"
+        font-size="13" fill="#1A237E" font-weight="bold" opacity="0.8">
+    GTK-3 SVG Rendering via librsvg
+  </text>
+</svg>
