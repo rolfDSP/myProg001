@@ -19,7 +19,7 @@ void OnAddMenu1(GtkWidget *widget, gpointer data) {
     }
 
     TMainWindow *mainwindow = static_cast<TMainWindow*>(data);
-    mainwindow->setStatusBarDefaultText("AddMenu1");
+    mainwindow->onAddMenu1();
 }
 
 void OnAddMenu2(GtkWidget *widget, gpointer data) {
@@ -29,7 +29,6 @@ void OnAddMenu2(GtkWidget *widget, gpointer data) {
     }
 
     TMainWindow *mainwindow = static_cast<TMainWindow*>(data);
-    mainwindow->setStatusBarDefaultText("AddMenu2");
 }
 
 int main(int argc, char* argv[]) {
@@ -42,11 +41,11 @@ int main(int argc, char* argv[]) {
 
     window.show();
 
-    PDataItem item;
-    item.setBackgroundColor({0.2, 0.0, 0.3, 0.5});
-    item.setDispSize(64);
-    item.setSVG(folder_svg);
-    item.show();
+    // PDataItem item;
+    // item.setBackgroundColor({0.2, 0.0, 0.3, 0.5});
+    // item.setDispSize(64);
+    // item.setSVG(folder_svg);
+    // item.show();
 
     gtk_main();
     return 0;

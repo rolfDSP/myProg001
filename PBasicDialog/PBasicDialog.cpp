@@ -47,8 +47,8 @@ PBasicDialog::PBasicDialog(GtkWindow* parent, ButtonAlignment alignment)
     gtk_box_pack_start(GTK_BOX(buttonRow), okButton,     FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(buttonRow), cancelButton, FALSE, FALSE, 0);
 
-    g_signal_connect(okButton,     "clicked", G_CALLBACK(onOkClicked),     this);
-    g_signal_connect(cancelButton, "clicked", G_CALLBACK(onCancelClicked), this);
+    g_signal_connect(okButton,     "clicked", G_CALLBACK(okClickedCb),     this);
+    g_signal_connect(cancelButton, "clicked", G_CALLBACK(cancelClickedCb), this);
 
     gtk_box_pack_start(GTK_BOX(vbox), buttonRow, FALSE, FALSE, 0);
 
@@ -68,6 +68,10 @@ PBasicDialog::~PBasicDialog() {
 
 void PBasicDialog::setCaption(const std::string& caption) {
     gtk_window_set_title(GTK_WINDOW(m_window), caption.c_str());
+}
+
+void PBasicDialog::show() {
+    gtk_widget_show_all(m_window);
 }
 
 void PBasicDialog::setMainControlWindow(GtkWidget* widget) {
@@ -93,21 +97,28 @@ gint PBasicDialog::run() {
     return m_result;
 }
 
-void PBasicDialog::onOkClicked(GtkWidget* /*widget*/, gpointer data) {
-    auto* self    = static_cast<PBasicDialog*>(data);
-    self->m_result = GTK_RESPONSE_OK;
-    gtk_widget_hide(self->m_window);
-    if (self->m_loop) {
-        g_main_loop_quit(self->m_loop);
+// Static trampolines — dispatch to the virtual methods so derived classes can override
+void PBasicDialog::okClickedCb(GtkWidget* /*widget*/, gpointer data) {
+    static_cast<PBasicDialog*>(data)->onOkClicked();
+}
+
+void PBasicDialog::cancelClickedCb(GtkWidget* /*widget*/, gpointer data) {
+    static_cast<PBasicDialog*>(data)->onCancelClicked();
+}
+
+void PBasicDialog::onOkClicked() {
+    m_result = GTK_RESPONSE_OK;
+    gtk_widget_hide(m_window);
+    if (m_loop) {
+        g_main_loop_quit(m_loop);
     }
 }
 
-void PBasicDialog::onCancelClicked(GtkWidget* /*widget*/, gpointer data) {
-    auto* self    = static_cast<PBasicDialog*>(data);
-    self->m_result = GTK_RESPONSE_CANCEL;
-    gtk_widget_hide(self->m_window);
-    if (self->m_loop) {
-        g_main_loop_quit(self->m_loop);
+void PBasicDialog::onCancelClicked() {
+    m_result = GTK_RESPONSE_CANCEL;
+    gtk_widget_hide(m_window);
+    if (m_loop) {
+        g_main_loop_quit(m_loop);
     }
 }
 

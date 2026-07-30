@@ -16,8 +16,13 @@ public:
 
     void setCaption(const std::string& caption);
     void setMainControlWindow(GtkWidget* widget);
+    void show();
 
     gint run();
+
+protected:
+    virtual void onOkClicked();
+    virtual void onCancelClicked();
 
 private:
     GtkWidget*      m_window;
@@ -26,7 +31,7 @@ private:
     GMainLoop*      m_loop;
     gint            m_result;
 
-    static void     onOkClicked(GtkWidget* widget, gpointer data);
-    static void     onCancelClicked(GtkWidget* widget, gpointer data);
+    static void     okClickedCb(GtkWidget* widget, gpointer data);
+    static void     cancelClickedCb(GtkWidget* widget, gpointer data);
     static gboolean onDeleteEvent(GtkWidget* widget, GdkEvent* event, gpointer data);
 };

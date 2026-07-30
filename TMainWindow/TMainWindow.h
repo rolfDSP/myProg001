@@ -31,6 +31,8 @@ public:
 
     void setStatusBarDefaultText(const std::string text);
 
+    void onAddMenu1();
+
 private:
     GtkWidget* m_window;
     GtkWidget* m_vbox;

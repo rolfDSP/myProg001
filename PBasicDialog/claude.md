@@ -24,3 +24,8 @@ The main dialog control window is empty during initialization and can be set wit
 
 void setMainControlWiindow(GTKWidget* reference)
 
+The callback functions for OK/Cancel like:
+onCancelClicked()
+onOkClicked()
+
+shall be overrideable by a class derived from PBasicDialog  

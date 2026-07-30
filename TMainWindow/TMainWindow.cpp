@@ -1,4 +1,6 @@
 #include "TMainWindow.h"
+#include "PBasicDialog/PBasicDialog.hpp"
+#include "PBasicDialog/PTestDialog.hpp"
 
 static const gchar* DARK_BLUE_CSS =
     "* {"
@@ -112,6 +114,18 @@ MenuSubEntryObjectHandle TMainWindow::createMenuSubEntry(const char* name,
 
 void TMainWindow::setStatusBarDefaultText(const std::string text) {
     m_statusBar.setStatusDefaultText(text);
+}
+
+void TMainWindow::onAddMenu1() {
+    PTestDialog dialog(GTK_WINDOW(m_window));
+    dialog.setCaption("Example Dialog");
+
+    gint result = dialog.run();
+    if (result == GTK_RESPONSE_OK) {
+        g_print("PBasicDialog: user clicked OK\n");
+    } else {
+        g_print("PBasicDialog: user cancelled\n");
+    }
 }
 
 void TMainWindow::onQuit(GtkWidget* /*widget*/, gpointer /*data*/) {

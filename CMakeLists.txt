@@ -12,7 +12,9 @@ add_executable(myProg001
     main.cpp
     TMainWindow/TMainWindow.cpp
     TStatusBar/TStatusBar.cpp
-        PDataItem/PDataItem.cpp
+    PDataItem/PDataItem.cpp
+    PBasicDialog/PBasicDialog.cpp
+    PBasicDialog/PTestDialog.cpp
 )
 
 target_include_directories(myProg001 PRIVATE
