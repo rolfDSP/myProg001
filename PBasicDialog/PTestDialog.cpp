@@ -16,3 +16,9 @@ PTestDialog::~PTestDialog()
 {
 
 }
+
+void PTestDialog::onOkClicked()
+{
+    g_print("PTestDialog::onOkClicked()\n");
+    PBasicDialog::onOkClicked();
+}

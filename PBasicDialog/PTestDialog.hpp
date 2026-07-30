@@ -12,6 +12,9 @@ class PTestDialog : public PBasicDialog
 public:
     explicit PTestDialog(GtkWindow *parent = nullptr);
     ~PTestDialog();
+
+protected:
+    void onOkClicked();
 };
 
 #endif //MYPROG001_PTESTDIALOG_HPP

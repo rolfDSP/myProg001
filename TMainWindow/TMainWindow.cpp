@@ -1,6 +1,7 @@
 #include "TMainWindow.h"
 #include "PBasicDialog/PBasicDialog.hpp"
 #include "PBasicDialog/PTestDialog.hpp"
+#include "PBasicDialog/PTestDataDialog.hpp"
 
 static const gchar* DARK_BLUE_CSS =
     "* {"
@@ -117,7 +118,7 @@ void TMainWindow::setStatusBarDefaultText(const std::string text) {
 }
 
 void TMainWindow::onAddMenu1() {
-    PTestDialog dialog(GTK_WINDOW(m_window));
+    PTestDataDialog dialog(GTK_WINDOW(m_window));
     dialog.setCaption("Example Dialog");
 
     gint result = dialog.run();
