@@ -6,6 +6,7 @@
 #define MYPROG001_PTESTDATADIALOG_HPP
 
 #include "PBasicDialog.hpp"
+#include "GUI_Elements/PFramedWindow/PFramedWindow.hpp"
 
 class PTestDataDialog : public PBasicDialog
 {
@@ -14,7 +15,9 @@ public:
     ~PTestDataDialog();
 
 protected:
-    GtkWidget* m_vbox;
+    GtkWidget*    m_vbox;
+    PFramedWindow* m_framedWindow;
+    PFramedWindow* m_framedWindow1;
 };
 
 #endif //MYPROG001_PTESTDATADIALOG_HPP

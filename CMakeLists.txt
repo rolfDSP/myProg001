@@ -16,6 +16,7 @@ add_executable(myProg001
     PBasicDialog/PBasicDialog.cpp
     PBasicDialog/PTestDialog.cpp
     PBasicDialog/PTestDataDialog.cpp
+    GUI_Elements/PFramedWindow/PFramedWindow.cpp
 )
 
 target_include_directories(myProg001 PRIVATE
